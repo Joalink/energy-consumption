@@ -1,0 +1,21 @@
+#python
+.venv/
+__pycache__/
+*.pyc
+data/
+.env.*
+.env
+!.env.example
+
+#devcontainer cache
+.devcontainer/cache/
+.devcontainer/devcontainer-lock.json
+.vscode/
+EOF
+.ruff_cache/
+
+*.pt
+mlruns/
+mlflow/
+runs/
+results/
