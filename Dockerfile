@@ -16,7 +16,7 @@ RUN uv sync --no-dev
 COPY src/ src/
 COPY api/ api/
 COPY config/ config/
-COPY models/ models/
+COPY model/ model/
 
 ENV PYTHONPATH=/app
 

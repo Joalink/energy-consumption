@@ -3,6 +3,7 @@
 __pycache__/
 *.pyc
 data/
+!src/data/
 .env.*
 .env
 !.env.example
