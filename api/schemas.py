@@ -10,5 +10,5 @@ class PredictRequest(BaseModel):
     day_of_week: int
 
 
-class PredictionResponse(BaseModel):
+class PredictResponse(BaseModel):
     energy_consumption_kwh: float
