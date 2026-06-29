@@ -1,0 +1,13 @@
+data/
+mlflow/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+.git/
+dags/
+notebooks/
+.devcontainer/
+*.md
+uv.lock
