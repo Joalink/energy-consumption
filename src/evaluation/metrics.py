@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 from src.data.dataset import EnergyDataset
 from src.model.architecture import EnergyModel
 
-WEIGHTS_PATH = Path("models/best.pt")
+WEIGHTS_PATH = Path("model/best.pt")
 
 
 def main() -> None:

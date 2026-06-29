@@ -1,7 +1,6 @@
 paths:
   mlflow_db: mlflow/mlflow.db
-  model_output: models/best.pt
-
+  model_output: model/best.pt
 
 model:
   input_size: 6
