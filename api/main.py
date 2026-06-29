@@ -2,7 +2,7 @@ from functools import lru_cache
 
 from fastapi import FastAPI, HTTPException
 
-from api.schemas import PredictionResponse, PredictRequest
+from api.schemas import PredictRequest, PredictResponse
 from src.inference import EnergyInference
 
 app = FastAPI(title="Energy Consumption API", version="0.1.0")
@@ -18,7 +18,8 @@ def health():
     return {"status": "ok"}
 
 
-def predict(request: PredictRequest) -> PredictionResponse:
+@app.post("/predict", response_model=PredictResponse)
+def predict(request: PredictRequest) -> PredictResponse:
     try:
         model = get_model()
         features = [
@@ -30,6 +31,6 @@ def predict(request: PredictRequest) -> PredictionResponse:
             request.day_of_week,
         ]
         prediction = model.predict(features)
-        return PredictionResponse(energy_consumption_kwh=prediction)
+        return PredictResponse(energy_consumption_kwh=prediction)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
