@@ -34,6 +34,6 @@
   "mounts": [
     "source=${localWorkspaceFolder}/data,target=/app/energy-consumption/data,type=bind"
   ],
-  "runArgs": ["--shm-size=2gb"],
+  "runArgs": ["--gpus", "all", "--shm-size=2gb"],
   "remoteUser": "vscode"
 }

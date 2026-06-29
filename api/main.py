@@ -1,0 +1,35 @@
+from functools import lru_cache
+
+from fastapi import FastAPI, HTTPException
+
+from api.schemas import PredictionResponse, PredictRequest
+from src.inference import EnergyInference
+
+app = FastAPI(title="Energy Consumption API", version="0.1.0")
+
+
+@lru_cache(maxsize=1)
+def get_model() -> EnergyInference:
+    return EnergyInference()
+
+
+@app.get("/healt")
+def healt():
+    return {"status": "ok"}
+
+
+def predict(request: PredictRequest) -> PredictionResponse:
+    try:
+        model = get_model()
+        features = [
+            request.household_size,
+            request.avg_temperature_c,
+            int(request.has_ac),
+            request.peak_hours_usage_kwh,
+            request.month,
+            request.day_of_week,
+        ]
+        prediction = model.predict(features)
+        return PredictionResponse(energy_consumption_kwh=prediction)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
