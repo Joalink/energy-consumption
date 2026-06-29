@@ -1,0 +1,24 @@
+paths:
+  mlflow_db: mlflow/mlflow.db
+  model_output: models/best.pt
+
+
+model:
+  input_size: 6
+  hidden_size: 128
+  num_layers: 2
+  dropout: 0.2
+
+training:
+  epochs: 100
+  batch: 32
+  learning_rate: 0.001
+  patience: 10
+
+mlflow:
+  experiment_name: energy-consumption
+  model_name: energy-consumption
+  
+airflow:
+  min_val_loss_threshold: 1.0
+  
