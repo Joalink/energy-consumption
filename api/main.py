@@ -13,8 +13,8 @@ def get_model() -> EnergyInference:
     return EnergyInference()
 
 
-@app.get("/healt")
-def healt():
+@app.get("/health")
+def health():
     return {"status": "ok"}
 
 
