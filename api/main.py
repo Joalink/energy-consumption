@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 from api.schemas import PredictRequest, PredictResponse
 from src.inference import EnergyInference
 
-app = FastAPI(title="Energy Consumption API", version="0.1.0")
+app = FastAPI(title="Energy Consumption API", version="1.0.0")
 
 
 @lru_cache(maxsize=1)
